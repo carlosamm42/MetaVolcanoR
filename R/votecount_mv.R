@@ -154,7 +154,7 @@ votecount_mv <- function(diffexp=list(), pcriteria="pvalue",
         dplyr::arrange(-abs(idx))
 
     # --- Drawing DEGs by dataset
-    gg <- draw_degbar(bardat)
+    gg <- draw_degbar(bardat, colors = rev(colors))
     ff <- draw_cum_freq(meta_diffexp, nstud)
     gf <- plot_grid(gg, ff, align="h")
     mv <- plot_mv(meta_diffexp, nstud, genecol, FALSE, NULL,
