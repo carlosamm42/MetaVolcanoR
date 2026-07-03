@@ -46,7 +46,7 @@ votecount_mv <- function(diffexp=list(), pcriteria="pvalue",
 			      metathr=0.01, collaps=FALSE, 
 			      jobname="MetaVolcano", outputfolder = tempdir(), 
 			      draw="HTML",
-			      colors = c("#377EB8", "grey", "#E41A1C"),
+			      colors = c("#083e46", "grey", "#811820"),
 			      point_size = 0.5,
 			      label_genes = NULL,
 			      label_top_n = NULL,
@@ -154,7 +154,7 @@ votecount_mv <- function(diffexp=list(), pcriteria="pvalue",
         dplyr::arrange(-abs(idx))
 
     # --- Drawing DEGs by dataset
-    gg <- draw_degbar(bardat)
+    gg <- draw_degbar(bardat, colors = rev(colors))
     ff <- draw_cum_freq(meta_diffexp, nstud)
     gf <- plot_grid(gg, ff, align="h")
     mv <- plot_mv(meta_diffexp, nstud, genecol, FALSE, NULL,
